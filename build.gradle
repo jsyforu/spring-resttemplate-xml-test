@@ -1,0 +1,36 @@
+plugins {
+	id 'org.springframework.boot' version '2.5.8'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.ayoen'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = "1.9"
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api:4.0.0-RC2'
+	implementation 'com.sun.xml.bind:jaxb-impl:3.0.1'
+	implementation 'org.glassfish.jaxb:jaxb-runtime:3.0.1'
+	implementation group: 'jakarta.activation', name: 'jakarta.activation-api', version: '2.1.0-RC1'
+}
+
+test {
+	useJUnitPlatform()
+}
+targetCompatibility = JavaVersion.VERSION_1_9
